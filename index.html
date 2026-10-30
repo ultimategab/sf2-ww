@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="shortcut icon" href="./icon.ico" type="image/x-icon">
+    <link rel="stylesheet"    href="./style.css" />
+    <script type="module" src="./src/index.js"></script>
+    <title>Street Fighter II - The World Warrior (World 910522)</title>
+  </head>
+  <body>
+    <!-- game canvas -->
+    <div class="game-screen"><canvas width="384" height="224"></canvas></div>
+
+    <!-- fighter sprites -->
+    <img src="./images/fighters/blanka.png"                 alt="blanka" />
+    <img src="./images/fighters/chun-li.png"                alt="chun-li" />
+    <img src="./images/fighters/dhalsim.png"                alt="dhalsim" />
+    <img src="./images/fighters/e-honda.png"                alt="e-honda" />
+    <img src="./images/fighters/guile.png"                  alt="guile" />
+    <img src="./images/fighters/ken.png"                    alt="ken" />
+    <img src="./images/fighters/ryu.png"                    alt="ryu" />
+    <img src="./images/fighters/zangief.png"                alt="zangief" />
+
+    <!-- scene sprites -->
+    <img src="./images/scenes/intro.png"                    alt="intro" />
+    <img src="./images/scenes/player-select.png"            alt="player-select" />
+    <img src="./images/scenes/result.png"                   alt="result" />
+    <img src="./images/scenes/title.png"                    alt="title" />
+    <img src="./images/scenes/versus.png"                   alt="versus" />
+
+    <!-- stage backgrounds -->
+    <img src="./images/stages/blanka-stage.png"             alt="blanka-stage" />
+    <img src="./images/stages/chun-li-stage.png"            alt="chun-li-stage" />
+    <img src="./images/stages/dhalsim-stage.png"            alt="dhalsim-stage" />
+    <img src="./images/stages/e-honda-stage.png"            alt="e-honda-stage" />
+    <img src="./images/stages/guile-stage.png"              alt="guile-stage" />
+    <img src="./images/stages/ken-stage.png"                alt="ken-stage" />
+    <img src="./images/stages/ryu-stage.png"                alt="ryu-stage" />
+    <img src="./images/stages/zangief-stage.png"            alt="zangief-stage" />
+
+    <!-- other sprites -->
+    <img src="./images/decals.png"                          alt="decals" />
+    <img src="./images/game-text-fonts-and-health-bars.png" alt="game-text-fonts-and-health-bars" />
+    <img src="./images/game-text-fonts.png"                 alt="game-text-fonts" />
+    <img src="./images/shadows.png"                         alt="shadows" />
+
+    <!-- scene audio -->
+    <audio id="intro"                     src="./audios/scenes/intro-theme.ogg"               preload="auto"     ></audio>
+    <audio id="player-select"             src="./audios/scenes/player-select.ogg"             preload="auto" loop></audio>
+    <audio id="result"                    src="./audios/scenes/result.ogg"                    preload="auto"     ></audio>
+    <audio id="versus"                    src="./audios/scenes/versus.ogg"                    preload="auto"     ></audio>
+
+    <!-- combat sfx -->
+    <audio id="block"                     src="./audios/sfx/combat/block.ogg"                 preload="auto"     ></audio>
+    <audio id="break-metal"               src="./audios/sfx/combat/break-metal.ogg"           preload="auto"     ></audio>
+    <audio id="break-wood"                src="./audios/sfx/combat/break-wood.ogg"            preload="auto"     ></audio>
+    <audio id="grunt"                     src="./audios/sfx/combat/grunt.ogg"                 preload="auto"     ></audio>
+    <audio id="heavy-attack"              src="./audios/sfx/combat/heavy-attack.ogg"          preload="auto"     ></audio>
+    <audio id="heavy-kick-hit"            src="./audios/sfx/combat/heavy-kick-hit.ogg"        preload="auto"     ></audio>
+    <audio id="heavy-punch-hit"           src="./audios/sfx/combat/heavy-punch-hit.ogg"       preload="auto"     ></audio>
+    <audio id="land"                      src="./audios/sfx/combat/land.ogg"                  preload="auto"     ></audio>
+    <audio id="light-attack"              src="./audios/sfx/combat/light-attack.ogg"          preload="auto"     ></audio>
+    <audio id="light-kick-hit"            src="./audios/sfx/combat/light-kick-hit.ogg"        preload="auto"     ></audio>
+    <audio id="light-punch-hit"           src="./audios/sfx/combat/light-punch-hit.ogg"       preload="auto"     ></audio>
+    <audio id="medium-attack"             src="./audios/sfx/combat/medium-attack.ogg"         preload="auto"     ></audio>
+    <audio id="medium-kick-hit"           src="./audios/sfx/combat/medium-kick-hit.ogg"       preload="auto"     ></audio>
+    <audio id="medium-punch-hit"          src="./audios/sfx/combat/medium-punch-hit.ogg"      preload="auto"     ></audio>
+    <audio id="thud"                      src="./audios/sfx/combat/thud.ogg"                  preload="auto"     ></audio>
+
+      <!-- specials sfx -->
+      <audio id="chun-li-spinningbirdkick"  src="./audios/sfx/combat/chun-li-spinningbirdkick.ogg"  preload="auto"     ></audio>
+      <audio id="dhalsim-fire"              src="./audios/sfx/combat/dhalsim-fire.ogg"              preload="auto"     ></audio>
+      <audio id="dhalsim-flame"             src="./audios/sfx/combat/dhalsim-flame.ogg"             preload="auto"     ></audio>
+      <audio id="dhalsim-yoga"              src="./audios/sfx/combat/dhalsim-yoga.ogg"              preload="auto"     ></audio>
+      <audio id="e-honda-dosukoi"           src="./audios/sfx/combat/e-honda-dosukoi.ogg"           preload="auto"     ></audio>
+      <audio id="guile-sonicboom"           src="./audios/sfx/combat/guile-sonicboom.ogg"           preload="auto"     ></audio>
+      <audio id="shoto-hadouken"            src="./audios/sfx/combat/shoto-hadouken.ogg"            preload="auto"     ></audio>
+      <audio id="shoto-shouryuken"          src="./audios/sfx/combat/shoto-shouryuken.ogg"          preload="auto"     ></audio>
+      <audio id="shoto-tatsumakisenpukyaku" src="./audios/sfx/combat/shoto-tatsumakisenpukyaku.ogg" preload="auto"     ></audio>
+      <!-- 
+        Some fighters reuse existing combat sfx in some of their specials
+      -->
+
+      <!-- winner pose sfx -->
+      <audio id="blanka-scream"             src="./audios/sfx/other/blanka-scream.ogg"              preload="auto"     ></audio>
+      <audio id="chun-li-laugh"             src="./audios/sfx/other/chun-li-laugh.ogg"              preload="auto"     ></audio>
+      <audio id="laugh"                     src="./audios/sfx/other/laugh.ogg"                      preload="auto"     ></audio>
+      <!-- 
+        Some fighters reuse existing combat sfx in some of their winner poses
+        honda uses 'e-honda-dosukoi' and zangief uses 'grunt', also both use 'laugh'
+        guile uses 'medium-attack' for the sound of 'combing'
+      -->
+
+    <audio id="chun-li-ko"                src="./audios/sfx/combat/chun-li-ko.ogg"            preload="auto"     ></audio>
+    <audio id="male-ko"                   src="./audios/sfx/combat/male-ko.ogg"               preload="auto"     ></audio>
+
+    <!-- other sfx -->
+    <audio id="coin"                      src="./audios/sfx/other/coin.ogg"                   preload="auto"     ></audio>
+    <audio id="elephant"                  src="./audios/sfx/other/elephant.ogg"               preload="auto"     ></audio>
+    <audio id="fighter-joined"            src="./audios/sfx/other/fighter-joined.ogg"         preload="auto"     ></audio>
+    <audio id="plane"                     src="./audios/sfx/other/plane.ogg"                  preload="auto"     ></audio>
+    <audio id="score-count"               src="./audios/sfx/other/score-count.ogg"            preload="auto"     ></audio>
+    <audio id="select-confirm"            src="./audios/sfx/other/select-confirm.ogg"         preload="auto"     ></audio>
+    <audio id="select-cursor"             src="./audios/sfx/other/select-cursor.ogg"          preload="auto"     ></audio>
+
+    <!-- stage themes -->
+    <audio id="blanka-theme-critical"     src="./audios/stages/blanka-theme-critical.ogg"     preload="auto" loop></audio>
+    <audio id="blanka-theme"              src="./audios/stages/blanka-theme.ogg"              preload="auto" loop></audio>
+    <audio id="chun-li-theme-critical"    src="./audios/stages/chun-li-theme-critical.ogg"    preload="auto" loop></audio>
+    <audio id="chun-li-theme"             src="./audios/stages/chun-li-theme.ogg"             preload="auto" loop></audio>
+    <audio id="dhalsim-theme-critical"    src="./audios/stages/dhalsim-theme-critical.ogg"    preload="auto" loop></audio>
+    <audio id="dhalsim-theme"             src="./audios/stages/dhalsim-theme.ogg"             preload="auto" loop></audio>
+    <audio id="e-honda-theme-critical"    src="./audios/stages/e-honda-theme-critical.ogg"    preload="auto" loop></audio>
+    <audio id="e-honda-theme"             src="./audios/stages/e-honda-theme.ogg"             preload="auto" loop></audio>
+    <audio id="guile-theme-critical"      src="./audios/stages/guile-theme-critical.ogg"      preload="auto" loop></audio>
+    <audio id="guile-theme"               src="./audios/stages/guile-theme.ogg"               preload="auto" loop></audio>
+    <audio id="ken-theme-critical"        src="./audios/stages/ken-theme-critical.ogg"        preload="auto" loop></audio>
+    <audio id="ken-theme"                 src="./audios/stages/ken-theme.ogg"                 preload="auto" loop></audio>
+    <audio id="ryu-theme-critical"        src="./audios/stages/ryu-theme-critical.ogg"        preload="auto" loop></audio>
+    <audio id="ryu-theme"                 src="./audios/stages/ryu-theme.ogg"                 preload="auto" loop></audio>
+    <audio id="zangief-theme-critical"    src="./audios/stages/zangief-theme-critical.ogg"    preload="auto" loop></audio>
+    <audio id="zangief-theme"             src="./audios/stages/zangief-theme.ogg"             preload="auto" loop></audio>
+
+    <!-- announcer sfx -->
+    <audio id="announcer-brazil"          src="./audios/voices/announcer-brazil.ogg"          preload="auto"     ></audio>
+    <audio id="announcer-china"           src="./audios/voices/announcer-china.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-india"           src="./audios/voices/announcer-india.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-japan"           src="./audios/voices/announcer-japan.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-usa"             src="./audios/voices/announcer-usa.ogg"             preload="auto"     ></audio>
+    <audio id="announcer-ussr"            src="./audios/voices/announcer-ussr.ogg"            preload="auto"     ></audio>
+    <audio id="announcer-1"               src="./audios/voices/announcer-1.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-2"               src="./audios/voices/announcer-2.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-3"               src="./audios/voices/announcer-3.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-4"               src="./audios/voices/announcer-4.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-5"               src="./audios/voices/announcer-5.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-6"               src="./audios/voices/announcer-6.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-7"               src="./audios/voices/announcer-7.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-8"               src="./audios/voices/announcer-8.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-9"               src="./audios/voices/announcer-9.ogg"               preload="auto"     ></audio>
+    <audio id="announcer-fight"           src="./audios/voices/announcer-fight.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-final"           src="./audios/voices/announcer-final.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-lose"            src="./audios/voices/announcer-lose.ogg"            preload="auto"     ></audio>
+    <audio id="announcer-perfect"         src="./audios/voices/announcer-perfect.ogg"         preload="auto"     ></audio>
+    <audio id="announcer-round"           src="./audios/voices/announcer-round.ogg"           preload="auto"     ></audio>
+    <audio id="announcer-win"             src="./audios/voices/announcer-win.ogg"             preload="auto"     ></audio>
+    <audio id="announcer-you"             src="./audios/voices/announcer-you.ogg"             preload="auto"     ></audio>
+  </body>
+</html>

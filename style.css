@@ -1,0 +1,31 @@
+html,
+body {
+  padding: 0;
+  margin:  0;
+  height:  100%;
+}
+
+body {
+  display: flex;
+  background: black;
+}
+
+.game-screen {
+  /* sets the game's aspect ratio e.g., 4:3 (4 / 3), 16:9 (16 / 9) ... */
+  width:  min(100vw, calc(100vh * 4 / 3));
+  height: min(100vh, calc(100vw * 3 / 4));
+  margin: auto;
+}
+
+canvas {
+  display: block;
+  width:  100%;
+  height: 100%;
+  image-rendering: pixelated;
+  /* tweaks the colors to better match the original sfii ww cps-1 look */
+  filter: brightness(0.9) contrast(1.2);
+}
+
+img {
+  display: none;
+}
