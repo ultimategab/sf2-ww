@@ -27,10 +27,10 @@ export const WarningDelay = {
   FADE_OUT:  48,
   BLACK:      8,
 
-  // Measured World warning pacing; the fade transition is within one CPS tick.
+  // sf2ww warning timing; fade transition happens within one CPS tick.
   FAST_FADE_IN_END: 68,
   FAST_FADE_IN:      9,
-  FAST:            32,
+  FAST:             32,
 };
 
 export const WarningText = [
